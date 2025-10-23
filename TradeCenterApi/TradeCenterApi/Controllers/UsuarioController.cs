@@ -4,6 +4,8 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class UsuarioController : Controller
     {
         private readonly IUsuarioQueries _usuarioQueries;
@@ -20,7 +22,7 @@ namespace TradeCenterApi.Controllers
         {
             try
             {
-                var rs = await _usuarioQueries.GetUsuario();
+                var rs = await _usuarioQueries.GetAll();
                 return Ok(rs);
             }
             catch (Exception)

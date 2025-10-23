@@ -7,8 +7,9 @@ using TradeCenterApi.Models;
 
 namespace TradeCenterApi.Repository.Interfaces
 {
-    public interface IUsuarioQueries
+    public interface IIntercambioRepository
     {
-        Task<IEnumerable<Usuario>> GetAll();
+        Task<Intercambio> Add(Intercambio entity);
+        Task<Intercambio> Update(Intercambio entity);
     }
 }

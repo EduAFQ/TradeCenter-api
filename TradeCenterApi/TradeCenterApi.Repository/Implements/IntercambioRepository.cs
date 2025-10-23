@@ -1,5 +1,4 @@
-﻿using Dapper;
-using Dapper.Contrib.Extensions;
+﻿using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -11,43 +10,44 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Repository.Implements
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class IntercambioRepository : IIntercambioRepository
     {
         private readonly IDbConnection _db;
 
-        public UsuarioRepository(IDbConnection db)
+        public IntercambioRepository(IDbConnection db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
         }
-        public async Task<Usuario> Add(Usuario entity)
+        public async Task<Intercambio> Add(Intercambio entity)
         {
             try
             {
                 var rs = await _db.InsertAsync(entity);
-                entity.UsuarioId = rs;
+                entity.IntercambioId = rs;
                 return entity;
             }
             catch (Exception)
             {
 
                 throw;
-            }
+            };
         }
 
-        public async Task Delete(int id)
+        public async Task<Intercambio> Update(Intercambio entity)
         {
             try
             {
-                string sql = $"DELETE FROM Usuarios WHERE UsuariosId={id}";
-                await _db.ExecuteAsync(sql);
-            }
-            catch (Exception)
-            {
+                var actualizado = await _db.UpdateAsync(entity);
 
-                throw;
+                if (!actualizado)
+                    throw new Exception("No se pudo actualizar el intercambio.");
+
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception($"Error al actualizar el intercambio: {ex.Message}", ex);
             }
         }
-
-        
     }
 }

@@ -7,8 +7,8 @@ using TradeCenterApi.Models;
 
 namespace TradeCenterApi.Repository.Interfaces
 {
-    public interface IUsuarioQueries
+    public interface IColeccionUsuarioQueries
     {
-        Task<IEnumerable<Usuario>> GetAll();
+        Task<IEnumerable<DetallIntercambio>> GetColeccionByUsuarioId(int UsuarioId);
     }
 }
