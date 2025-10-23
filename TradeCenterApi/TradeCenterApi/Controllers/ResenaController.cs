@@ -17,20 +17,20 @@ namespace TradeCenterApi.Controllers
             _resenaRepository = resenaRepository ?? throw new ArgumentNullException(nameof(resenaRepository));
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Listar()
-        {
-            try
-            {
-                var rs = await _resenaQueries.GetResenaByUsuarioId();
-                return Ok(rs);
-            }
-            catch (Exception)
-            {
-                throw;
-            }
-        }
-      
+        //[HttpGet]
+        //public async Task<IActionResult> Listar()
+        //{
+        //    try
+        //    {
+        //        var rs = await _resenaQueries.GetResenaByUsuarioId();
+        //        return Ok(rs);
+        //    }
+        //    catch (Exception)
+        //    {
+        //        throw;
+        //    }
+        //}
+
 
         [HttpPost]
         public async Task<IActionResult> Agregar(Resena es)
@@ -46,4 +46,5 @@ namespace TradeCenterApi.Controllers
                 throw;
             }
         }
+    }
 }
