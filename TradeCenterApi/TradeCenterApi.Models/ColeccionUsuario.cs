@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace TradeCenterApi.Models
 {
-    public class DetallIntercambio
+    public class ColeccionUsuario
     {
         [Key]
         public int ColeccionId { get; set; }

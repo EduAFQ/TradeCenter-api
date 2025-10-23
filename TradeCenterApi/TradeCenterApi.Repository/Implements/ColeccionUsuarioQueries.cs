@@ -18,7 +18,7 @@ namespace TradeCenterApi.Repository.Implements
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
         }
-        public async Task<IEnumerable<DetallIntercambio>> GetColeccionByUsuarioId(int UsuarioId)
+        public async Task<IEnumerable<ColeccionUsuario>> GetColeccionByUsuarioId(int UsuarioId)
         {
             try
             {
@@ -26,7 +26,7 @@ namespace TradeCenterApi.Repository.Implements
                     $"INNER JOIN Carta G " +
                     $"ON C.CartaId = G.ColeccionUsuarioId " +
                     $"WHERE G.UsuarioId={UsuarioId}";
-                return await _db.QueryAsync<DetallIntercambio>(sql);
+                return await _db.QueryAsync<ColeccionUsuario>(sql);
             }
             catch (Exception)
             {
