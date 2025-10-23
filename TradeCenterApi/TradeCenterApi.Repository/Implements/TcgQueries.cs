@@ -1,8 +1,8 @@
 ﻿using Dapper;
-using Dapper.Contrib.Extensions;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Common;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,21 +11,21 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Repository.Implements
 {
-    public class UsuarioRepository : IUsuarioRepository
+    public class TcgQueries : ITcgQueries
     {
         private readonly IDbConnection _db;
 
-        public UsuarioRepository(IDbConnection db)
+        public TcgQueries(IDbConnection db)
         {
             _db = db ?? throw new ArgumentNullException(nameof(db));
         }
-        public async Task<Usuario> Add(Usuario entity)
+
+        public async Task<IEnumerable<Tcg>> GetAll()
         {
             try
             {
-                var rs = await _db.InsertAsync(entity);
-                entity.UsuarioId = rs;
-                return entity;
+                var rs = await _db.QueryAsync<Tcg>("SELECT * FROM Estudiantes");
+                return rs;
             }
             catch (Exception)
             {
@@ -34,12 +34,12 @@ namespace TradeCenterApi.Repository.Implements
             }
         }
 
-        public async Task Delete(int id)
+        public async Task<IEnumerable<Tcg>> GetTcgById(int TcgId)
         {
             try
             {
-                string sql = $"DELETE FROM Usuarios WHERE UsuariosId={id}";
-                await _db.ExecuteAsync(sql);
+                string sql = $"SELECT FROM Tcg WHERE TcgId={TcgId}";
+                return await _db.QueryAsync<Tcg>(sql);
             }
             catch (Exception)
             {
@@ -47,7 +47,5 @@ namespace TradeCenterApi.Repository.Implements
                 throw;
             }
         }
-
-        
     }
 }

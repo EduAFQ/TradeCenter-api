@@ -7,8 +7,9 @@ using TradeCenterApi.Models;
 
 namespace TradeCenterApi.Repository.Interfaces
 {
-    public interface IUsuarioQueries
+    public interface ITcgQueries
     {
-        Task<IEnumerable<Usuario>> GetAll();
+        Task<IEnumerable<Tcg>> GetAll();
+        Task<IEnumerable<Tcg>> GetTcgById(int TcgId);
     }
 }

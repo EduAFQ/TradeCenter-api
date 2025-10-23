@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Dapper.Contrib.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,7 @@ namespace TradeCenterApi.Models
 {
     public class Carta
     {
+        [Key]
         public int CartaId { get; set; }
         public required string Nombre { get; set; }
         public required string Edicion { get; set; }

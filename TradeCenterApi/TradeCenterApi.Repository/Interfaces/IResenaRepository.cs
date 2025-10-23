@@ -7,8 +7,8 @@ using TradeCenterApi.Models;
 
 namespace TradeCenterApi.Repository.Interfaces
 {
-    public interface IUsuarioQueries
+    public interface IResenaRepository
     {
-        Task<IEnumerable<Usuario>> GetAll();
+        Task<Resena> Add(Resena entity);
     }
 }

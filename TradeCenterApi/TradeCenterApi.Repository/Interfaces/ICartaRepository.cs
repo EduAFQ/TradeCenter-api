@@ -7,8 +7,8 @@ using TradeCenterApi.Models;
 
 namespace TradeCenterApi.Repository.Interfaces
 {
-    public interface IUsuarioQueries
+    public interface ICartaRepository
     {
-        Task<IEnumerable<Usuario>> GetAll();
+        Task<Carta> Add(Carta entity);
     }
 }

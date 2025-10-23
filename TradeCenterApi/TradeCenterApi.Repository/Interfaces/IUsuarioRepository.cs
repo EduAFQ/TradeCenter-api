@@ -10,6 +10,7 @@ namespace TradeCenterApi.Repository.Interfaces
     public interface IUsuarioRepository
     {
         Task<Usuario> Add(Usuario entity);
+
         Task Delete(int UsuarioId);
     }
 }
