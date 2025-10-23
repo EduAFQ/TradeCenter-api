@@ -30,7 +30,7 @@ namespace TradeCenterApi.Controllers
                 throw;
             }
         }
-
+        [HttpPut]
         public async Task<IActionResult> Actualizar(Intercambio es)
         {
             try

@@ -17,19 +17,19 @@ namespace TradeCenterApi.Controllers
 
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Listar()
-        {
-            try
-            {
-                var rs = await _detalleintercambioQueries.GetDetalleByIntercambioId();
-                return Ok(rs);
-            }
-            catch (Exception)
-            {
+        //[HttpGet]
+        //public async Task<IActionResult> Listar()
+        //{
+        //    try
+        //    {
+        //        var rs = await _detalleintercambioQueries.GetDetalleByIntercambioId();
+        //        return Ok(rs);
+        //    }
+        //    catch (Exception)
+        //    {
 
-                throw;
-            }
-        }
+        //        throw;
+        //    }
+        //}
     }
 }
