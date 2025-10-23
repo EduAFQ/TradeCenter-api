@@ -9,6 +9,7 @@ namespace TradeCenterApi.Repository.Interfaces
 {
     public interface IColeccionUsuarioQueries
     {
-        Task<IEnumerable<DetallIntercambio>> GetColeccionByUsuarioId(int UsuarioId);
+        Task<IEnumerable<ColeccionUsuario>> GetColeccionByUsuarioId(int UsuarioId);
+        
     }
 }

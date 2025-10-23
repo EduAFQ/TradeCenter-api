@@ -6,15 +6,15 @@ namespace TradeCenterApi.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class CartaController : Controller
+    public class ResenaController : Controller
     {
-        private readonly ICartaQueries _cartaQueries;
-        private readonly ICartaRepository _cartaRepository;
+        private readonly IResenaQueries _resenaQueries;
+        private readonly IResenaRepository _resenaRepository;
 
-        public CartaController(ICartaRepository cartaRepository, ICartaQueries cartaQueries)
+        public ResenaController(IResenaRepository resenaRepository, IResenaQueries resenaQueries)
         {
-            _cartaQueries = cartaQueries ?? throw new ArgumentNullException(nameof(cartaQueries));
-            _cartaRepository = cartaRepository ?? throw new ArgumentNullException(nameof(cartaRepository));
+            _resenaQueries = resenaQueries ?? throw new ArgumentNullException(nameof(resenaQueries));
+            _resenaRepository = resenaRepository ?? throw new ArgumentNullException(nameof(resenaRepository));
         }
 
         [HttpGet]
@@ -22,22 +22,22 @@ namespace TradeCenterApi.Controllers
         {
             try
             {
-                var rs = await _cartaQueries.GetAll();
+                var rs = await _resenaQueries.GetResenaByUsuarioId();
                 return Ok(rs);
             }
             catch (Exception)
             {
-
                 throw;
             }
         }
+      
 
         [HttpPost]
-        public async Task<IActionResult> Agregar(Carta es)
+        public async Task<IActionResult> Agregar(Resena es)
         {
             try
             {
-                var rs = await _cartaRepository.Add(es);
+                var rs = await _resenaRepository.Add(es);
                 return Ok(rs);
             }
             catch (Exception)
@@ -46,5 +46,4 @@ namespace TradeCenterApi.Controllers
                 throw;
             }
         }
-    }
 }
