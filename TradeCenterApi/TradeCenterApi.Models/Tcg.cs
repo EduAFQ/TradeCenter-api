@@ -9,8 +9,14 @@ namespace TradeCenterApi.Models
 {
     public class Tcg
     {
+        /// <summary>
+        /// Identificador del Tcg
+        /// </summary>
         [Key]
         public int TcgId { get; set; }
+        /// <summary>
+        /// Variable Nombre del Tcg
+        /// </summary>
         public string NombreTcg { get; set; }
     }
 }

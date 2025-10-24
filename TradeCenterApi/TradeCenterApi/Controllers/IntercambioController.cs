@@ -5,6 +5,9 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las operaciones relacionadas con los intercambios.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class IntercambioController : Controller
@@ -16,6 +19,11 @@ namespace TradeCenterApi.Controllers
             
             _intercambioRepository = intercambioRepository ?? throw new ArgumentNullException(nameof(intercambioRepository));
         }
+        /// <summary>
+        /// Metodo para crear un nuevo intercambio.
+        /// </summary>
+        /// <param name="es"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Agregar(Intercambio es)
         {
@@ -30,6 +38,11 @@ namespace TradeCenterApi.Controllers
                 throw;
             }
         }
+        /// <summary>
+        /// Metodo para actualizar el estado de un intercambio.
+        /// </summary>
+        /// <param name="es"></param>
+        /// <returns></returns>
         [HttpPut]
         public async Task<IActionResult> Actualizar(Intercambio es)
         {
