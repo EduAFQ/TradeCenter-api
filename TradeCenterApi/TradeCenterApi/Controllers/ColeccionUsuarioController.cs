@@ -16,19 +16,19 @@ namespace TradeCenterApi.Controllers
     
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Listar()
-        //{
-        //    try
-        //    {
-        //        var rs = await _coleccionusuarioQueries.GetColeccionByUsuarioId();
-        //        return Ok(rs);
-        //    }
-        //    catch (Exception)
-        //    {
+        [HttpGet]
+        public async Task<IActionResult> Listar(int UsuarioId)
+        {
+            try
+            {
+                var rs = await _coleccionusuarioQueries.GetColeccionByUsuarioId(UsuarioId);
+                return Ok(rs);
+            }
+            catch (Exception)
+            {
 
-        //        throw;
-        //    }
-        //}
+                throw;
+            }
+        }
     }
 }

@@ -17,19 +17,19 @@ namespace TradeCenterApi.Controllers
             _resenaRepository = resenaRepository ?? throw new ArgumentNullException(nameof(resenaRepository));
         }
 
-        //[HttpGet]
-        //public async Task<IActionResult> Listar()
-        //{
-        //    try
-        //    {
-        //        var rs = await _resenaQueries.GetResenaByUsuarioId();
-        //        return Ok(rs);
-        //    }
-        //    catch (Exception)
-        //    {
-        //        throw;
-        //    }
-        //}
+        [HttpGet]
+        public async Task<IActionResult> Listar(int UsuarioId)
+        {
+            try
+            {
+                var rs = await _resenaQueries.GetResenasByUsuarioId(UsuarioId);
+                return Ok(rs);
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
 
 
         [HttpPost]
