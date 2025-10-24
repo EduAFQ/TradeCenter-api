@@ -3,6 +3,9 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las operaciones relacionadas con los TCG (Trading Card Games).
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class TcgController : Controller
@@ -15,7 +18,10 @@ namespace TradeCenterApi.Controllers
             _tcgQueries = tcgQueries ?? throw new ArgumentNullException(nameof(tcgQueries));
            
         }
-
+        /// <summary>
+        /// Metodo para listar todos los TCG.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Listar()
         {

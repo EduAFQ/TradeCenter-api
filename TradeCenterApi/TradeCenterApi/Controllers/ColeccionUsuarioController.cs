@@ -3,6 +3,9 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las operaciones relacionadas con las colecciones de usuarios.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ColeccionUsuarioController : Controller
@@ -15,7 +18,11 @@ namespace TradeCenterApi.Controllers
             _coleccionusuarioQueries = coleccionusuarioQueries ?? throw new ArgumentNullException(nameof(coleccionusuarioQueries));
     
         }
-
+        /// <summary>
+        /// Metodo para listar todas las colecciones de un usuario.
+        /// </summary>
+        /// <param name="UsuarioId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Listar(int UsuarioId)
         {

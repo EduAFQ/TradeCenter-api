@@ -4,6 +4,9 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las operaciones relacionadas con las cartas.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class CartaController : Controller
@@ -17,6 +20,10 @@ namespace TradeCenterApi.Controllers
             _cartaRepository = cartaRepository ?? throw new ArgumentNullException(nameof(cartaRepository));
         }
 
+        /// <summary>
+        /// Metodo para listar todas las cartas.
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Listar()
         {
@@ -32,6 +39,11 @@ namespace TradeCenterApi.Controllers
             }
         }
 
+        /// <summary>
+        /// Metodo para agregar una nueva carta.
+        /// </summary>
+        /// <param name="es"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Agregar(Carta es)
         {

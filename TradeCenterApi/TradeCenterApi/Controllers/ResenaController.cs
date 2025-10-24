@@ -4,6 +4,9 @@ using TradeCenterApi.Repository.Interfaces;
 
 namespace TradeCenterApi.Controllers
 {
+    /// <summary>
+    /// Controlador para gestionar las operaciones relacionadas con las reseñas.
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class ResenaController : Controller
@@ -16,7 +19,11 @@ namespace TradeCenterApi.Controllers
             _resenaQueries = resenaQueries ?? throw new ArgumentNullException(nameof(resenaQueries));
             _resenaRepository = resenaRepository ?? throw new ArgumentNullException(nameof(resenaRepository));
         }
-
+        /// <summary>
+        /// Metodo para listar todas las reseñas de un usuario.
+        /// </summary>
+        /// <param name="UsuarioId"></param>
+        /// <returns></returns>
         [HttpGet]
         public async Task<IActionResult> Listar(int UsuarioId)
         {
@@ -31,7 +38,11 @@ namespace TradeCenterApi.Controllers
             }
         }
 
-
+        /// <summary>
+        /// Metodo para crear una nueva reseña.
+        /// </summary>
+        /// <param name="es"></param>
+        /// <returns></returns>
         [HttpPost]
         public async Task<IActionResult> Agregar(Resena es)
         {
