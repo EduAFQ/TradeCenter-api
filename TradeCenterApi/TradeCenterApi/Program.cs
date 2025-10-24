@@ -20,7 +20,15 @@ namespace TradeCenterApi
 
             builder.Services.AddTransient<IUsuarioQueries, UsuarioQueries>();
             builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-         
+            builder.Services.AddTransient<ITcgQueries, TcgQueries>();
+            builder.Services.AddTransient<IDetalleIntercambioQueries, DetalleIntercambioQueries>();
+            builder.Services.AddTransient<IResenaQueries, ResenaQueries>();
+            builder.Services.AddTransient<IResenaRepository, ResenaRepository>();
+            builder.Services.AddTransient<IIntercambioRepository, IntercambioRepository>();
+            builder.Services.AddTransient<IColeccionUsuarioQueries, ColeccionUsuarioQueries>();
+            builder.Services.AddTransient<ICartaQueries, CartaQueries>();
+            builder.Services.AddTransient<ICartaRepository, CartaRepository>();
+
 
             builder.Services.AddScoped<IDbConnection>(options =>
             {
